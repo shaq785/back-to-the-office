@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Back to the Office</title>
+    <meta property="og:title" content="Back to the Office"/>
+    <meta property="og:site_name" content="Back to the Office"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="/back-to-the-office-2021/"/>
+    <meta property="og:description" content="Play 'Back to the Office' and help our Creative Director get back in time to make the pitch of the year!"/>
+    <meta name="twitter:card" content="summary"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-NC595VM"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Kirang+Haerang|Modern+Antiqua|Open+Sans+Condensed:300" rel="stylesheet">
+</head>
+<body>
+
+  <div id="topBlock">
+    <div class="board1">
+      <div class="music">
+        <button class="playPause" onClick="playPaused();">
+          <img src="images/button-sound-on-up.svg"></button>
+      </div>
+      <div class="office-logo">
+        <img src="images/back-to-the-office.svg" alt="Back to the office">
+      </div>
+      <div id="pauseGame">
+        <button id="pauseGamebtn" data-toggle="modal" data-target="#welcomeModal">
+          <img src="images/button-info-up.svg" alt>
+        </button>
+      </div>
+      
+    </div>
+    <div id="info-bar">
+      <div class="board2">
+        <div class="infoSubContainer">
+          <p>Score</p>
+          <span id = "scoreBar"></span>
+        </div>
+        <div class="infoSubContainer">
+          <p>Lives</p>
+          <span id = "livescount"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal - Welcome -->
+  <div id="welcomeModal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" onClick="modalClose();" data-dismiss="modal"><img src="images/button-close1.svg" alt="close modal"></button>
+          <div id="introLogo">
+            <img src="images/back-to-the-office.svg" alt="Back to the Office">
+          </div>
+          <p id="rulesHeader" class="d-none">How to play:</p>
+        </div>
+        <div class="modal-body">
+          <div id="welcomeCopy">
+            <p>Help our Creative Director get back to the office in time to make the pitch of the year!</p>
+            <p>The year is 2021 and it’s been a doozy, to say the least. The pandemic has raged on throughout the year, but the time has come for Chuckles to fold up his sweats, set aside his sourdough starter, and return to the office. Be sure to help him boost up on the way by grabbing some coffee, masks, and vaccines! Avoid the coronavirus and the protesters or he’ll be sent back home to quarantine.</p>
+            <p>Good luck!</p>
+          </div>
+          <div id="welcomeRules" class="d-none">
+            <p>Use the arrow keys (or touch controls on mobile devices) to navigate through obstacles and reach the doors of the Office!</p>
+            <img src="images/collisions.svg" alt>
+            <p>There are power-ups that will give you additional points along the way:</p>
+            <img src="images/powerups.svg" alt>
+            <ul>
+              <li><span class="sr-only">Coffee:</span>20 PTS</li>
+              <li><span class="sr-only">Mask and Sanitizer:</span>30 PTS</li>
+              <li><span class="sr-only">Vaccine:</span>40 PTS</li>
+            </ul>
+            <p>To win, you must reach 450 points to unlock the doors and enter the building.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default button" id="rulesbtn">See Rules</button>
+          <button type="button" class="btn btn-default button d-none" data-dismiss="modal" data-target="#playModal" onClick="modalClose();" id="btplay">Let's Play!</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal - LOST -->
+  <div id="gameoverModal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" onClick="modalClose();" class="close" data-dismiss="modal"><img src="images/button-close1.svg" alt="close modal"></button>
+        
+        </div>
+        <div class="modal-body">
+          <p class="stats">Ohhh No!</p>
+          <p class="question">Looks like Chuckles got sent back home to quarantine</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default button" data-dismiss="modal" data-target="#playModal" onClick="modalClose();" id= "gameoverPlayAgain">Play Again?</button>
+
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal - WIN -->
+  <div id="winModal" class="modal fade" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" onClick="modalClose();" class="close" data-dismiss="modal"><img src="images/button-close1.svg" alt="close modal"></button>
+        </div>
+        <div class="modal-body">
+          <p class="stats">Yay! Chuckles made it Back to the Office in time for the pitch!</p>
+          <p class="question">Play again to beat your high score.</p>
+        </div>
+        <div class="modal-footer">
+          <button  type="button" class="btn btn-default" data-dismiss="modal" data-target="#playModal" onClick="modalClose();" id="winPlayAgain">Play Again?</button>
+          
+          <div class="mill-info">
+            <p>You made it Back to the Office</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="main"></div>
+      <div id="canvas-top"><img src="images/background-office-top.svg" alt></div>
+      
+      <div id="canvas"></div>
+
+      <div class="mobileBlock">
+        <div class="music">
+          <button class="playPause" onClick="playPaused();"><img src="images/button-sound-on-up.svg"></button>
+        </div>
+        <div id="mobControls">
+          <div id="keyLeft">
+            <button class="keys" data-key="37" id="left"><img src="images/button-mobile-left-up.svg" alt></button>
+          </div>
+          <div id="keyUp">
+            <button class="keys" data-key="38" id="up"><img src="images/button-mobile-forward-up.svg" alt></button>
+          </div>
+          <div id="keyRight">
+            <button class="keys" data-key="39" id="right"><img src="images/button-mobile-right-up.svg" alt></button>
+          </div>
+          <div id="keyDown">
+            <button class="keys" data-key="40" id="down"><img src="images/button-mobile-back-up.svg" alt></button>
+          </div>
+        </div>
+        <div id="pauseGame">
+          <button id="pauseGamebtn" data-toggle="modal" data-target="#welcomeModal">
+            <img src="images/button-info-up.svg" alt>
+          </button>
+        </div>
+      </div>
+
+      <audio id="themeSong">
+        <source src="audio/AdhesiveWombat-NightShade.mp3" muted=false loop type="audio/mp3">
+      </audio>
+
+      <!-- Win Sound Effect -->
+      <audio id="winSound">
+        <source src="audio/back-in-the-office.mp3" muted type="audio/mp3">
+      </audio>
+
+      <!-- Door Sound Effect -->
+      <audio id="doorSound">
+        <source src="audio/dooropencool.mp3" muted type="audio/mp3">
+      </audio>
+
+      <!-- Collision Sound Effects -->
+      <audio id="collisionSound-1">
+        <source src="audio/omg-dude.mp3" muted type="audio/mp3">
+      </audio>
+      <audio id="collisionSound-2">
+        <source src="audio/nomorewaffle-getmoving.mp3" muted type="audio/mp3">
+      </audio>
+      <audio id="collisionSound-3">
+        <source src="audio/millennials.mp3" muted type="audio/mp3">
+      </audio>
+      <audio id="collisionSound-4">
+        <source src="audio/ahoop.mp3" muted type="audio/mp3">
+      </audio>
+      <audio id="collisionSound-5">
+        <source src="audio/dont-do-that2.mp3" muted type="audio/mp3">
+      </audio>
+
+      <!-- Gem Sound Effects -->
+      <audio id="gemSound-1">
+        <source src="audio/love-it.mp3" muted type="audio/mp3">
+      </audio>
+      <audio id="gemSound-2">
+        <source src="audio/this-is-great.mp3" muted type="audio/mp3">
+      </audio>
+      <audio id="gemSound-3">
+        <source src="audio/hey-hey.mp3" muted type="audio/mp3">
+      </audio>
+      <audio id="gemSound-4">
+        <source src="audio/nailed-it.mp3" muted type="audio/mp3">
+      </audio>
+      <audio id="gemSound-5">
+        <source src="audio/moving-right-along.mp3" muted type="audio/mp3">
+      </audio>
+      <audio id="gemSound-6">
+        <source src="audio/goodthing.mp3" muted type="audio/mp3">
+      </audio>
+
+  </div>
+
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NC595VM');</script>
+    <!-- End Google Tag Manager -->
+  
+    <script>
+      var themeSong = document.getElementById('themeSong');
+      themeSong.volume = 0.1;
+
+
+      var playPause = document.getElementsByClassName('playPause');
+      var letPlay = document.getElementById('btplay');
+      var rulesBtn = document.getElementById('rulesbtn');
+      var welCopy = document.getElementById('welcomeCopy');
+      var rulesCopy = document.getElementById('welcomeRules');
+      var rulesHeader = document.getElementById('rulesHeader');
+      var introLogo = document.getElementById('introLogo');
+
+      rulesBtn.onclick = function(){
+        welCopy.classList.add('d-none');
+        rulesBtn.classList.add('d-none');
+        introLogo.classList.add('d-none');
+        rulesCopy.classList.remove('d-none');
+        letPlay.classList.remove('d-none');
+        rulesHeader.classList.remove('d-none');
+      }
+
+      function modalClose() {
+        themeSong.play();
+        playPause[0].innerHTML = "<img src='images/button-sound-on-up.svg'>";
+        playPause[1].innerHTML = "<img src='images/button-sound-on-up.svg'>";
+      }
+
+      function playPaused(){
+        if(themeSong.paused){
+          themeSong.play();
+          playPause[0].innerHTML = "<img src='images/button-sound-on-up.svg'>";
+          playPause[1].innerHTML = "<img src='images/button-sound-on-up.svg'>";
+        }else{
+          themeSong.pause();
+          playPause[0].innerHTML = "<img src='images/button-sound-off-down.svg'>";
+          playPause[1].innerHTML = "<img src='images/button-sound-off-down.svg'>";
+        }
+      }
+    </script>
+
+    <script src="js/resources.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/engine.js"></script>
+</body>
+
+</html>

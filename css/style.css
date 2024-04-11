@@ -1,0 +1,599 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@font-face {
+  font-family: '04b30';
+  src: url('../fonts/04b_30__-webfont.woff2') format('woff2'),
+       url('../fonts/04b_30__-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+body {
+    text-align: center;
+    padding: 1rem;
+    overflow: hidden;
+    background-color: #ADF1FF !important;
+    max-width: 60rem;
+    margin: 0 auto !important;
+    position: relative;
+}
+
+/* @media screen and (max-width: 1080px) and (max-height: 768px){
+  #main{
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+} */
+
+h1, h2, h3, p, ul, ol, li, button, a{
+  font-family: 'Press Start 2P', sans-serif !important;
+}
+
+p{
+  line-height: 2.5rem;
+}
+
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+@media screen and (min-width: 1600px) {
+  .modal-dialog{
+    min-width: 60vh;
+  }
+}
+
+#closeGame{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+#closeGame a{
+  font-size: 1rem;
+}
+
+#closeGame img{
+  width: 30px;
+}
+
+#topBlock{
+  display: flex;
+  flex-direction: column;
+  max-width: 750px;
+  margin: 3rem auto;
+}
+
+#rulesHeader{
+  padding-left: 3.5rem;
+  padding-top: 4rem;
+}
+
+#welcomeMill {
+  display: flex;
+  align-items: center;
+  max-width: 29rem;
+  margin: 0 auto;
+}
+
+#welcomeMill p{
+  font-size: 1rem;
+  flex: 1;
+  margin: 0;
+}
+
+#welcomeMill img{
+  flex: 1;
+  max-width: 13rem;
+  margin: 0;
+}
+
+.modal-header{
+  border-bottom: 0 !important;
+  margin-bottom: 2rem;
+}
+
+.modal-header button{
+  opacity: 1 !important;
+  width: 3rem;
+  height: 3rem;
+}
+
+.modal-header button img{
+  width: 100%;
+}
+
+.modal-body{
+  padding: 0 5rem !important;
+
+}
+
+.modal-header img{
+  width: 100%;
+  max-width: 25rem;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+.modal-body p{
+  margin-bottom: 2rem;
+}
+
+
+
+.modal-backdrop{
+  background-color: #ADF1FF !important;
+  opacity: 1 !important;
+}
+
+.d-none{
+  display: none !important;
+}
+
+.mobileBlock{
+  display: none;
+}
+
+.share-buttons{
+  display: flex;
+  justify-content: space-between;
+  column-gap: 1rem;
+  max-width: 20rem;
+  margin: 2rem auto 0;
+}
+
+.share-buttons a{
+  background-image: none !important;
+  width: 4rem !important;
+  padding: 0 !important;
+}
+
+.share-buttons a img{
+  width: 100%;
+}
+
+#welcomeModal .modal-content{
+  text-align: left;
+}
+
+#welcomeRules img{
+  margin: 4rem auto;
+  display: block;
+  width: 100%;
+  max-width: 500px;
+}
+#welcomeRules ul{
+  list-style: none;
+  margin: -3rem auto 4rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
+  padding-left: 0;
+}
+
+.modal-content{
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  height: auto;
+  box-shadow: none !important;
+  border-radius: 0  !important;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 3rem;
+  border: 2px solid black !important;
+}
+
+.modal-footer{
+  border-top: 0 !important;
+  text-align: center !important;
+  padding: 0 5rem !important;
+}
+
+.modal-footer button{
+  background-image: url(../images/button-bg.svg);
+  width: auto;
+  margin: 0 auto 2rem!important;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 2rem 5rem;
+  display: block;
+  border: 0;
+}
+
+.modal-footer .mill-info{
+  margin: 6rem 0 3rem;
+  padding-top: 3rem;
+  border-top: 4px solid #5FCDE4;
+}
+
+.modal-footer .mill-info p{
+    text-align: left !important;
+    margin: 3rem 0;
+}
+
+#canvas canvas{
+  width: 95%;
+  max-width: 707px;
+}
+
+button:focus{
+  outline: 0;
+  filter: drop-shadow(1px 1px 1px black);
+}
+
+button.btn:focus, button.btn:active{
+  filter: none !important;
+  background-color: transparent  !important;
+  background-image: url(../images/button-bg.svg);
+  box-shadow: none;
+}
+
+.playPause, #pauseGamebtn{
+  background-color: transparent;
+  border: 0;
+}
+.playPause img, #pauseGamebtn img{
+  width: 100%;
+  min-width: 9rem;
+}
+ 
+
+.board1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+
+.office-logo, .office-logo img{
+  width: 100%;
+  max-width: 36rem;
+}
+
+#info-bar .board2{
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  max-width: 707px;
+  margin: 3rem auto;
+  justify-content: space-between;
+}
+#info-bar {
+  flex: 1;
+}
+
+#info-bar .infoSubContainer{
+  background-color: white;
+  text-align: center;
+  color: black;
+  width: 100%;
+  padding: 1rem 0;
+}
+#info-bar .infoSubContainer p{
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+#info-bar .infoSubContainer span{
+  font-size: 4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: '04b30';
+}
+
+#canvas-top{
+  width: 95%;
+  max-width: 707px;
+  margin: 0 auto;
+  position: relative;
+  z-index: -1;
+  margin-bottom: -7.25rem;
+}
+
+#canvas-top img{
+  width: 100%;
+  max-width: 707px;
+}
+#canvas-top::before{
+  background-image: url('../images/background-office-side.svg');
+  background-repeat: space;
+  background-size: 12px 60px;
+  display: inline-block;
+  width: 1.5rem;
+  height: 149px;
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 0;
+}
+
+#canvas-top::after{
+  background-image: url('../images/background-office-side-2.svg');
+  background-repeat: space;
+  background-size: 12px 60px;
+  display: inline-block;
+  width: 1.5rem;
+  height: 149px;
+  content: "";
+  position: absolute;
+  right: -14px;
+  top: 0;
+}
+
+@media (pointer: coarse) and (hover: none) {
+
+  body{
+    position: unset;
+    left: unset;
+    top: unset;
+    bottom: unset;
+    transform: none;
+  }
+
+  #topBlock{
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .office-logo img{
+    width: 100%;
+    min-width: 0;
+  }
+
+  #introLogo{
+    max-width: 32rem;
+    margin: 0 auto;
+  }
+  
+  
+  #mobControls button{
+    background-color: transparent;
+    border: 0;
+    width: 65px;
+    height: 65px;
+  }
+  
+  #mobControls button#up img, #mobControls button#down img{
+    width: 100%;
+    height: auto;
+  }
+  
+  #mobControls button#left img, #mobControls button#right img{
+    width: auto;
+    height: 100%;
+  }
+  
+  #mobControls{
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+
+  #mobControls button#up{
+    transform: scale(2) rotate(45deg) translateX(0) translateY(0) skewX(0deg) skewY(0deg);
+  }
+  #keyUp{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #mobControls{
+    width: 25rem;
+    height: 25rem;
+  }
+
+  #mobControls button#up img{
+    transform: scale(1) rotate(-45deg) translateX(0px) translateY(20px) skewX(0deg) skewY(0deg);
+  }
+  
+  #mobControls button#left{
+    transform: scale(2) rotate(-45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+  }
+  #keyLeft{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  #mobControls button#left img{
+    transform: scale(1) rotate(45deg) translateX(20px) translateY(0px) skewX(0deg) skewY(0deg);
+  }
+  
+  #mobControls button#right{
+    transform: scale(2) rotate(45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+  }
+  #keyRight{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  #mobControls button#right img{
+    transform: scale(1) rotate(-45deg) translateX(-22px) translateY(0px) skewX(0deg) skewY(0deg);
+  }
+  
+  #mobControls button#down{
+    transform: scale(2) rotate(45deg) translateX(0) translateY(0) skewX(0deg) skewY(0deg);
+  }
+  #keyDown{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #mobControls button#down img{
+    transform: scale(1) rotate(-45deg) translateX(0) translateY(-20px) skewX(0deg) skewY(0deg);
+  }
+
+  .mobileBlock{
+    display: flex;
+    align-items: center;
+    max-width: 707px;
+    margin: 0 auto;
+    position: absolute;
+    /* width: 100%; */
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+  }
+  .board1 .music, .board1 #pauseGame{
+    display: none;
+  }
+  .board1{
+      margin-right: 2rem;
+  }
+  .board2 {
+    flex-direction: row;
+    margin: 0 !important;
+    gap: 1rem !important;
+  }
+
+  @media (min-width: 767px ) and (max-width: 1023px){
+
+    #topBlock, #canvas canvas{
+      width: 80%;
+    }
+    #canvas-top{
+      width: 80%;
+      margin-bottom: -6rem;
+    }
+
+    #canvas-top::before, #canvas-top::after{
+      height: 134px !important;
+      background-size: 12px 50px;
+    }
+
+    #mobControls{
+      width: 17rem;
+      height: 17rem;
+    }
+
+    .playPause img, #pauseGamebtn img {
+      min-width: 6rem;
+    }
+
+    #mobControls button#up{
+      transform: scale(1.15) rotate(45deg) translateX(0) translateY(0) skewX(0deg) skewY(0deg);
+    }
+    
+    #mobControls button#left{
+      transform: scale(1.15) rotate(-45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+    }
+    
+    #mobControls button#right{
+      transform: scale(1.15) rotate(45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+    }
+    
+    #mobControls button#down{
+      transform: scale(1.15) rotate(45deg) translateX(0) translateY(0) skewX(0deg) skewY(0deg);
+    }
+  
+
+  }
+
+  @media (max-width: 767px){
+    #topBlock{
+      margin: 1rem auto;
+    }
+
+    .modal-body li{
+      font-size: 1rem;
+    }
+    
+    #canvas-top{
+      margin-bottom: -3.75rem !important;
+    }
+
+    .modal-body p, .modal-footer p{
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+
+    #canvas-top::before, #canvas-top::after{
+      height: 74px !important;
+      background-size: 10px 28px;
+    }
+
+    #canvas-top::before{
+      left: -8px;
+    }
+
+    #canvas-top::after{
+      right: -11px;
+    }
+
+    #info-bar{
+      width: 100%;
+      margin: 0 2rem;
+    }
+
+    .board2{
+      flex-direction: column;
+    }
+
+    .infoSubContainer{
+      /* display: flex;
+      justify-content: left;
+      align-items: center; */
+      gap: 2rem;
+      padding: 0 1rem!important;
+    }
+  
+    .infoSubContainer span{
+      font-size: 3rem !important;
+    }
+  
+    .playPause img, #pauseGamebtn img {
+      min-width: 6rem;
+    }
+
+    #mobControls{
+      width: 17rem;
+      height: 17rem;
+    }
+
+    .playPause img, #pauseGamebtn img {
+      min-width: 6rem;
+    }
+
+    #mobControls button#up{
+      transform: scale(1.15) rotate(45deg) translateX(0) translateY(0) skewX(0deg) skewY(0deg);
+    }
+    
+    #mobControls button#left{
+      transform: scale(1.15) rotate(-45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+    }
+    
+    #mobControls button#right{
+      transform: scale(1.15) rotate(45deg) translateX(0px) translateY(0px) skewX(0deg) skewY(0deg);
+    }
+    
+    #mobControls button#down{
+      transform: scale(1.15) rotate(45deg) translateX(0) translateY(0) skewX(0deg) skewY(0deg);
+    }
+  }
+}
